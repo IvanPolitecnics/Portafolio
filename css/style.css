@@ -1,0 +1,805 @@
+html {
+    background-color:#0f141c;
+  }
+
+
+/* Estilos para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 10px 20px; /* Reduce padding para ajustar la altura */
+    color: white;
+    backdrop-filter: blur(10px);
+    opacity: 0.8; /* Aumenta la opacidad para mejor visibilidad */
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-links li {
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 0px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.nav-link:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+}
+
+.nav-link::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+.nav-link:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+/* CONTAINER INICIO */
+
+/* Estilo general para todas las secciones */
+.section {
+    /* position: relative; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center; /* Centra el texto */
+    padding-top: 70px; /* Espacio para la navbar fija */
+}
+
+/* Estilo específico para la sección de inicio */
+#inicio {
+    min-height: 100vh;
+}
+
+/* Estilo específico para las otras secciones */
+#sobremi, #conocimientos, #proyectos, #contacto {
+    min-height: 100px; /* Ajusta según tus necesidades */
+    padding-bottom: 70px; /* Agrega un padding-bottom si es necesario para el espaciado */
+}
+
+
+#sobremi {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#conocimientos {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#proyectos {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#contacto {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    /* background-color: white; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+  }
+  
+  .form .title {
+    color: #0A5D9A;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form input {
+    outline: 0;
+    border: 1px solid rgb(219, 213, 213);
+    padding: 8px 14px;
+    border-radius: 8px;
+    width: 100%;
+    height: 50px;
+  }
+  
+  .form textarea {
+    border-radius: 8px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+    outline: 0;
+    padding: 8px 14px;
+    border: 1px solid rgb(219, 213, 213);
+  }
+  
+  .form button {
+    align-self: flex-start;
+    padding: 8px;
+    outline: 0;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #0A5D9A;
+    color: #fff;
+    cursor: pointer;
+  }
+      
+
+.section-specific {
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenedor principal al inicio (izquierda) */
+    align-items: center;
+    text-align: left; /* Alinea el texto dentro del contenedor a la izquierda */
+    padding-left: 20px; /* Espacio desde el borde izquierdo */
+}
+
+.containerInicio {
+    text-align: left;
+    padding-left: 20px; /* Añade un poco de espacio desde el borde izquierdo */
+}
+
+.containerInicio h1 {
+    font-size: 6rem; /* Tamaño de fuente para el nombre y apellido */
+}
+
+.containerInicio p {
+    font-size: 3rem; /* Tamaño de fuente para "Web Developer" */
+}
+
+@media (max-width: 768px) {
+    /* Ajuste de tamaño de fuente para pantallas más pequeñas */
+    .containerInicio h1 {
+        font-size: 3rem;
+    }
+
+    .containerInicio p {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+/* CARDS CONOCIMIMENTOS */
+.containerProyectos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+    text-align: center;
+}
+
+.containerProyectos h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px #ffffff80;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card svg {
+    width: 48px;
+    fill: #333;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+    transform: rotateX(0deg);
+}
+
+.card__title {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.card:hover svg {
+    scale: 0;
+}
+
+.card__description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+}
+
+.containerProyectos .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Incrementa el valor para más espacio entre las cards */
+    justify-items: center;
+    width: 100%;
+}
+
+
+  
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: transparent;
+    color: white; /* Color del texto blanco */
+    font-family: 'Kodchasan', sans-serif;
+
+
+}
+
+.kodchasan-extralight {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .kodchasan-light {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .kodchasan-regular {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .kodchasan-medium {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .kodchasan-semibold {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .kodchasan-bold {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .kodchasan-extralight-italic {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .kodchasan-light-italic {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .kodchasan-regular-italic {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .kodchasan-medium-italic {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .kodchasan-semibold-italic {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .kodchasan-bold-italic {
+    font-family: "Kodchasan", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+
+html {
+    height: 100%;
+}
+
+.navbar-logo img {
+    width: 30px; /* Cambia el ancho de la imagen */
+    height: auto; /* Autoajusta la altura para mantener la proporción */
+}
+
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin-right: 20px;
+}
+
+.navbar-links li:last-child {
+    margin-right: 0;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* AQUI */
+
+/* SECCION SOBREMI */
+
+#sobremi .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#sobremi .section-title {
+    text-align: center;
+    margin: 20px 0; /* Espacio entre el título y el contenido */
+}
+
+#sobremi .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el contenido en dos columnas */
+    grid-gap: 20px; /* Espacio entre las columnas */
+    width: 100%; /* Asegura que el contenido ocupe el ancho completo del contenedor */
+    max-width: 1200px; /* Limita el ancho máximo del contenido */
+    margin-top: 20px; /* Espacio entre el título y el contenido */
+}
+
+#sobremi .left-content {
+    /* text-align: left; Alinea el texto a la izquierda */
+    color: #fff; /* Color del texto */
+}
+
+#sobremi .right-content {
+    display: flex;
+    justify-content: center; /* Centra la tarjeta verticalmente */
+}
+
+/* Estilos generales para la tarjeta */
+#sobremi .card {
+    --font-color: #fefefe;
+    --font-color-sub: #7e7e7e;
+    --bg-color: #111;
+    --main-color: #fefefe;
+    width: 200px;
+    height: auto; /* Ajuste la altura automática para acomodar las imágenes */
+    background: var(--bg-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Estilos para la foto principal de la tarjeta */
+#sobremi .card-photo {
+    background-image: url('../images/avatar.png');
+    background-size: cover; /* Ajusta el tamaño de la imagen para que cubra completamente el contenedor */
+    background-position: center; /* Ajusta la posición de la imagen al centro */
+    width: 150px; /* Ajusta el ancho de la imagen */
+    height: 150px; /* Ajusta la altura de la imagen */
+    border-radius: 50%; /* Haz la imagen redonda si es un avatar */
+    margin-bottom: 10px;
+}
+
+/* Estilos para el título de la tarjeta */
+#sobremi .card-title {
+    text-align: center;
+    color: var(--font-color);
+    font-size: 20px;
+    font-weight: 400;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 10px;
+}
+
+#sobremi .card-title span {
+    font-size: 15px;
+    color: var(--font-color-sub);
+}
+
+/* Estilos para las fotos adicionales */
+#sobremi .card-photos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    transition: 0.5s;
+    height: auto; /* Ajuste la altura automática para acomodar las imágenes */
+    opacity: 0;
+}
+
+#sobremi .card-photo-img {
+    width: 30px; /* Limita el ancho de las imágenes */
+    height: 30px; /* Limita la altura de las imágenes */
+    border-radius: 5px;
+    object-fit: cover; /* Asegura que la imagen se recorte para llenar el contenedor */
+}
+
+/* Mostrar las fotos al pasar el ratón sobre la tarjeta */
+#sobremi .card:hover > .card-photos {
+    opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+    #sobremi .content {
+        grid-template-columns: 1fr; /* En pantallas pequeñas, mostrar una sola columna */
+    }
+}
+
+/* Estilo para la cuadrícula de tarjetas */
+#conocimientos .card-grid {
+    display: grid;
+    gap: 50px; /* Aumenta el espacio entre las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    justify-items: center;
+}
+
+#conocimientos .card {
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    padding: 1.2rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#conocimientos .card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* Diseño Responsivo */
+@media (min-width: 600px) {
+    #conocimientos .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    #conocimientos .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#proyectos .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 2px solid #c3c6ce;
+}
+
+/* Estilo para el contenedor del video */
+#proyectos .video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#proyectos .video-container video {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#proyectos .video-container .video-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#proyectos .video-container .video-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+#inicio .lamp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#inicio .lava {
+    filter: url("#goo");
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.blob {
+    border-radius: 50%;
+    background: #0A5D9A;
+    position: absolute;
+}
+
+.blob.top {
+    width: 100%;
+    height: 4%;
+    top: -3%;
+    left: 0;
+}
+
+.blob.bottom {
+    width: 100%;
+    height: 4%;
+    bottom: -3%;
+    left: 0;
+}
+
+.blob:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    left: 35%;
+    bottom: -15%;
+    animation: wobble 4s ease-in-out alternate infinite, blob-one 13s ease-in-out infinite;
+}
+
+.blob:nth-child(2) {
+    width: 330px;
+    height: 330px;
+    right: 24%;
+    bottom: -65%;
+    animation: wobble 5s ease-in-out alternate infinite, blob-two 22s ease-in-out infinite;
+}
+
+.blob:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    bottom: -15%;
+    left: 34%;
+    animation: wobble 6s ease-in-out alternate infinite, blob-three 16s ease-in-out infinite;
+}
+
+.blob:nth-child(4) {
+    width: 235px;
+    height: 235px;
+    bottom: -19%;
+    left: 30%;
+    animation: wobble 7s ease-in-out alternate infinite, blob-four 12s ease-in-out infinite;
+}
+
+.blob:nth-child(5) {
+    width: 55px;
+    height: 55px;
+    bottom: -25%;
+    left: 34%;
+    animation: wobble 9s ease-in-out alternate infinite, blob-five 32s ease-in-out infinite;
+}
+
+.blob:nth-child(6) {
+    width: 35px;
+    height: 35px;
+    bottom: -25%;
+    right: 34%;
+    animation: wobble 10s ease-in-out alternate infinite, blob-six 12s ease-in-out infinite;
+}
+
+.blob:nth-child(7) {
+    width: 435px;
+    height: 435px;
+    bottom: -85%;
+    right: 40%;
+    animation: wobble 11s ease-in-out alternate infinite, blob-seven 32s ease-in-out infinite;
+}
+
+@keyframes blob-one {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-700%);
+    }
+}
+
+@keyframes blob-two {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-420%);
+    }
+}
+
+@keyframes blob-three {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-305%);
+    }
+}
+
+@keyframes blob-four {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-605%);
+    }
+}
+
+@keyframes blob-five {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-700%);
+    }
+}
+
+@keyframes blob-six {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-700%);
+    }
+}
+
+@keyframes blob-seven {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-300%);
+    }
+}
+
+@keyframes wobble {
+    50% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    100% {
+        border-radius: 38% 52% 75% 36% / 50% 40% 50% 60%;
+    }
+}
