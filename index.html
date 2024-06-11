@@ -11,8 +11,67 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700&display=swap"
         rel="stylesheet">
+    <style>
+        .video-button {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #000;
+            padding: 5px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        #btnCard {
+            top: 10px;
+            right: 10px;
+        }
+
+        #btnCardGrid {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        #btnProjects {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+            animation: fadein 0.5s, fadeout 0.5s 4.5s;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +89,7 @@
         <script>
             // Desplazamiento suave al hacer clic en los enlaces de la barra de navegación
             document.querySelectorAll('.nav-link').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -110,9 +169,6 @@
                             <span>Web developer</span>
                         </div>
                         <div class="card-photos">
-                            <!-- <img src="images/LinkedIn.png" alt="Imagen 1" class="card-photo-img">
-                            <img src="images/GitHub.png" alt="Imagen 2" class="card-photo-img">
-                            <img src="images/cv.png" alt="Imagen 3" class="card-photo-img"> -->
                             <a href="https://enlace1.com" target="_blank">
                                 <img src="images/LinkedIn.png" alt="Imagen 1" class="card-photo-img">
                             </a>
@@ -128,8 +184,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- Sección de conocimientos -->
     <section class="section" id="conocimientos">
@@ -161,7 +215,6 @@
                     <img src="images/MySQLdelf.png" alt="Descripción de la imagen 6" class="card-image">
                 </div>
             </div>
-            </div>
         </div>
     </section>
 
@@ -174,28 +227,30 @@
             <br>
             <br>
             <br>
+
             <div class="cards">
                 <div class="card">
-                    <img src="images/cientifiks.png" alt="Descripción de la imagen 1" class="card-image">
+                    <img src="images/cientifiks.PNG" alt="Descripción de la imagen 1" class="card-image">
                     <div class="card__content">
-                        <p class="card__title">Cientifiks en joc</p>
-                        <p class="card__description">Un juego web educativo hecho en JavaScript con cuatro minijuegos: 
-                            una carrera por el safari, el juego de la oca, una carrera de elefantes y atrapar la electricidad.</p>
+                        <p class="card__title">Minijuegos</p>
+                        <p class="card__description">Conjunto de minijuegos desarrollados en Java, incluyendo un safari,
+                            el juego de la oca, una carrera de elefantes y atrapar la
+                            electricidad.</p>
                     </div>
                 </div>
                 <div class="card">
                     <img src="images/autoa.png" alt="Descripción de la imagen 1" class="card-image">
                     <div class="card__content">
                         <p class="card__title">Autoavaluació</p>
-                        <p class="card__description">Aplicación web desarrollada con Laravel y PHP para gestionar usuarios 
-                            (administrador, profesor y alumno) y mostrar datos desde una base de datos.</p>
+                        <p class="card__description">Aplicación web desarrollada con Laravel y PHP para gestionar
+                            usuarios (administrador, profesor y alumno) y mostrar datos desde una base de datos.</p>
                     </div>
                 </div>
                 <div class="card">
                     <img src="images/jocrol.png" alt="Descripción de la imagen 1" class="card-image">
                     <div class="card__content">
                         <p class="card__title">Joc de rol</p>
-                        <p class="card__description">Un juego de rol estilo Dungeons & Dragons desarrollado en Java, 
+                        <p class="card__description">Un juego de rol estilo Dungeons & Dragons desarrollado en Java,
                             ofreciendo una experiencia de aventura y estrategia.</p>
                     </div>
                 </div>
@@ -203,34 +258,24 @@
                     <img src="images/serpiente.png" alt="Descripción de la imagen 1" class="card-image">
                     <div class="card__content">
                         <p class="card__title">Snake</p>
-                        <p class="card__description">Clásico juego de la serpiente hecho en Java, 
-                            donde la serpiente crece al comer manzanas, incrementando la dificultad con cada nivel.</p>
+                        <p class="card__description">Clásico juego de la serpiente hecho en Java, donde la serpiente
+                            crece al comer manzanas, incrementando la dificultad con cada nivel.</p>
                     </div>
                 </div>
             </div>
             <!-- Video interactivo -->
-        <!-- <div class="video-container">
-            <video id="portfolioVideo" width="600" controls>
-                <source src="images/0527.mp4" type="video/mp4">
-                Tu navegador no soporta el elemento de video.
-            </video>
-            <button id="togglePlay" class="video-button">Pausar</button> 
-        </div>-->
-        <!-- <script>
-            document.getElementById('togglePlay').addEventListener('click', function () {
-                var video = document.getElementById('portfolioVideo');
-                if (video.paused) {
-                    video.play();
-                    this.textContent = 'Pausar';
-                } else {
-                    video.pause();
-                    this.textContent = 'Reanudar';
-                }
-            });
-        </script>
-    -->
+            <div class="video-container">
+                <video id="portfolioVideo" width="600" controls>
+                    <source src="images/0527.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <!-- <button id="togglePlay" class="video-button">Pausar</button> -->
+                <button id="btnCard" class="video-button">Card</button>
+                <button id="btnCardGrid" class="video-button">Card Grid</button>
+                <button id="btnProjects" class="video-button">Proyectos</button>
+                <div id="tooltip" class="tooltip"></div>
+            </div>
         </div>
-
     </section>
 
     <!-- Sección de contacto -->
@@ -241,11 +286,64 @@
                 <div class="title">Contacto</div>
                 <input type="text" placeholder="Tu email" class="input">
                 <textarea placeholder="Mensaje"></textarea>
-                 
                 <button>Enviar</button>
             </form>
         </div>
     </section>
+
+    <script>
+        // document.getElementById('togglePlay').addEventListener('click', function () {
+        //     var video = document.getElementById('portfolioVideo');
+        //     if (video.paused) {
+        //         video.play();
+        //         this.textContent = 'Pausar';
+        //     } else {
+        //         video.pause();
+        //         this.textContent = 'Reanudar';
+        //     }
+        // });
+
+        document.getElementById('portfolioVideo').addEventListener('timeupdate', function () {
+            var video = this;
+            document.getElementById('btnCard').style.display = (video.currentTime >= 12 && video.currentTime <= 16) ? 'block' : 'none';
+            document.getElementById('btnCardGrid').style.display = (video.currentTime >= 20 && video.currentTime <= 24) ? 'block' : 'none';
+            document.getElementById('btnProjects').style.display = (video.currentTime >= 30 && video.currentTime <= 34) ? 'block' : 'none';
+        });
+
+        function showTooltip(message, button) {
+    var tooltip = document.getElementById('tooltip');
+    tooltip.textContent = message;
+    
+    // Obtener las coordenadas del botón
+    var rect = button.getBoundingClientRect();
+    
+    // Ajustar la posición del tooltip
+    tooltip.style.top = rect.top + window.scrollY + 'px';
+    tooltip.style.left = rect.right + window.scrollX + 'px'; // Mover el tooltip a la derecha del botón
+    
+    tooltip.style.display = 'block';
+    
+    // Ocultar el tooltip después de 5 segundos
+    setTimeout(function () {
+        tooltip.style.display = 'none';
+    }, 5000);
+}
+
+        document.getElementById('btnCard').addEventListener('click', function () {
+            showTooltip('Card para mostrar informacion sobre mi usando HTML, CSS y JS', this);
+            document.querySelector('.card').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('btnCardGrid').addEventListener('click', function () {
+            showTooltip('Cards para mostrar mis conocimientos y habilidades usando HTML, CSS y JS', this);
+            document.querySelector('.card-grid').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('btnProjects').addEventListener('click', function () {
+            showTooltip('Cards para mostrar los Proyectos usando HTML, CSS y JS', this);
+            document.querySelector('.cards').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 
 </html>
